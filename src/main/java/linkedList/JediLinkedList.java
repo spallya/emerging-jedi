@@ -1,8 +1,5 @@
 package linkedList;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class JediLinkedList<T> {
 
     private Node head;
@@ -104,35 +101,8 @@ public class JediLinkedList<T> {
         return output;
     }
 
-    private class Node<T> {
-
-        T data;
-        Node next;
-
-        public Node(T data) {
-            this.data = data;
-            this.next = null;
-        }
-
-        public Node(T data, Node next) {
-            this.data = data;
-            this.next = next;
-        }
-
-        public T getData() {
-            return data;
-        }
-
-        public void setData(T data) {
-            this.data = data;
-        }
-
-        public Node getNext() {
-            return next;
-        }
-
-        public void setNext(Node next) {
-            this.next = next;
-        }
+    public Node getHead() {
+        return head;
     }
+
 }
