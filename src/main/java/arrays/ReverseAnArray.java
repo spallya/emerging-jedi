@@ -3,18 +3,13 @@ package arrays;
 public class ReverseAnArray {
 
     public static void main(String[] args) {
-        int [] input = {10, 20, 30, 40, 50};
+        int [] input = {131, 55, 11, 211, 312};
         System.out.println("Current array: ");
-        printArray(input);
+        ArraysUtil.printArray(input);
         System.out.println("\nReversed array: ");
-        printArray(reverse(input));
+        ArraysUtil.printArray(reverse(input));
     }
 
-    private static void printArray(int[] input) {
-        for (int i : input) {
-            System.out.print(i + " ");
-        }
-    }
 
     private static int[] reverse(int[] input) {
         int length = input.length;
