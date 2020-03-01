@@ -25,8 +25,29 @@ public class JediLinkedList<T> {
         incrementNumberOfElements();
     }
 
+    public void add(T data, int index) {
+        Node temp = new Node(data);
+        Node current = head;
+        if (null != current) {
+            for (int i = 0; i < index && current.getNext() != null; i++) {
+                current = current.getNext();
+            }
+        }
+        temp.setNext(current.getNext());
+        current.setNext(temp);
+        incrementNumberOfElements();
+    }
+
     private void incrementNumberOfElements() {
         numberOfElements++;
+    }
+
+    private void decrementNumberOfElements() {
+        numberOfElements--;
+    }
+
+    private int getNumberOfElements() {
+        return numberOfElements;
     }
 
     private class Node<T> {
