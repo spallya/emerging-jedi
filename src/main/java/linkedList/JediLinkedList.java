@@ -38,6 +38,22 @@ public class JediLinkedList<T> {
         incrementNumberOfElements();
     }
 
+    public T get(int index) {
+        if(index < 0)
+            return null;
+        Node current = null;
+        if (null != head) {
+            current = head;
+            for (int i = 0; i < index; i++) {
+                if (null == current.getNext()) {
+                    return null;
+                }
+                current = current.getNext();
+            }
+        }
+        return current != null ? (T) current.getData() : null;
+    }
+
     private void incrementNumberOfElements() {
         numberOfElements++;
     }
