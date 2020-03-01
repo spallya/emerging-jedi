@@ -39,7 +39,7 @@ public class JediLinkedList<T> {
     }
 
     public T get(int index) {
-        if(index < 0)
+        if (index < 0)
             return null;
         Node current = null;
         if (null != head) {
@@ -52,6 +52,30 @@ public class JediLinkedList<T> {
             }
         }
         return current != null ? (T) current.getData() : null;
+    }
+
+    public boolean remove(int index) {
+        if (index < 1 || index > size()) {
+            return false;
+        }
+        Node current = null;
+        if (null != head) {
+            current = head;
+            for (int i = 0; i < index; i++) {
+                if (null == current.getNext()) {
+                    return false;
+                }
+                current = current.getNext();
+            }
+            current.setNext(current.getNext().getNext());
+            decrementNumberOfElements();
+            return true;
+        }
+        return false;
+    }
+
+    public int size() {
+        return getNumberOfElements();
     }
 
     private void incrementNumberOfElements() {
