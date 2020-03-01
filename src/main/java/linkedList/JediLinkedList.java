@@ -53,13 +53,13 @@ public class JediLinkedList<T> {
     }
 
     public boolean remove(int index) {
-        if (index < 1 || index > size()) {
+        if (index < 0 || index > size()) {
             return false;
         }
         Node current = null;
         if (null != head) {
             current = head;
-            for (int i = 0; i < index; i++) {
+            for (int i = 0; i < index - 1; i++) {
                 if (null == current.getNext()) {
                     return false;
                 }
