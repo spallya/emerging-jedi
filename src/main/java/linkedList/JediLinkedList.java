@@ -90,6 +90,19 @@ public class JediLinkedList<T> {
         return numberOfElements;
     }
 
+    public String toString() {
+        String output = "";
+        if (null != head) {
+            Node current = head;
+            while (null != current) {
+                output += "[" + current.getData().toString() + "]";
+                current = current.getNext();
+            }
+
+        }
+        return output;
+    }
+
     private class Node<T> {
 
         T data;
