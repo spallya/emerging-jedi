@@ -1,5 +1,7 @@
 package linkedList;
 
+import linkedList.doubly.DoublyNode;
+import linkedList.doubly.JediDoublyLinkedList;
 import linkedList.singly.JediLinkedList;
 import linkedList.singly.Node;
 
@@ -9,7 +11,25 @@ public class ListUtilsTest {
         mergeTwoListsTest();
         System.out.println();
         detectLoopTest();
+        System.out.println();
+        reverseDoublyListTest();
+    }
 
+    private static void reverseDoublyListTest() {
+        JediDoublyLinkedList list = new JediDoublyLinkedList();
+        list.insertAtStart(110);
+        list.insertAtStart(221);
+        list.insertAtStart(13);
+        list.insertAtStart(44);
+        list.insertAtStart(575);
+        System.out.println("List: \t\t\t\t\t");
+        list.print();
+        DoublyNode node = ListUtils.reverseDoublyList(list.getHead());
+        System.out.print("Reversed List: \t\t\t");
+        while (node != null) {
+            System.out.print("[" + node.getData() + "] ");
+            node = node.getLinkNext();
+        }
     }
 
     /*

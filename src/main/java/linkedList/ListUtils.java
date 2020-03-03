@@ -1,5 +1,6 @@
 package linkedList;
 
+import linkedList.doubly.DoublyNode;
 import linkedList.singly.JediLinkedList;
 import linkedList.singly.Node;
 
@@ -50,5 +51,21 @@ public class ListUtils {
             }
         }
         return false;
+    }
+
+    public static DoublyNode reverseDoublyList(DoublyNode head) {
+        if (head == null){
+            return null;
+        }
+        while(head != null){
+            DoublyNode i = head.getLinkPrev();
+            head.setLinkPrev(head.getLinkNext());
+            head.setLinkNext(i);
+            if (head.getLinkPrev() == null){
+                return head;
+            }
+            head = head.getLinkPrev();
+        }
+        return head;
     }
 }

@@ -1,18 +1,19 @@
 package linkedList.doubly;
 
 public class JediDoublyLinkedList {
-    protected Node start;
-    protected Node end;
+
+    protected DoublyNode head;
+    protected DoublyNode tail;
     public int size;
 
     public JediDoublyLinkedList() {
-        start = null;
-        end = null;
+        head = null;
+        tail = null;
         size = 0;
     }
 
     public boolean isEmpty() {
-        return start == null;
+        return head == null;
     }
 
     public int getSize() {
@@ -20,41 +21,41 @@ public class JediDoublyLinkedList {
     }
 
     public void insertAtStart(int val) {
-        Node current = new Node(val, null, null);
-        if (start == null) {
-            start = current;
-            end = start;
+        DoublyNode current = new DoublyNode(val, null, null);
+        if (head == null) {
+            head = current;
+            tail = head;
         } else {
-            start.setLinkPrev(current);
-            current.setLinkNext(start);
-            start = current;
+            head.setLinkPrev(current);
+            current.setLinkNext(head);
+            head = current;
         }
         size++;
     }
 
     public void insertAtEnd(int val) {
-        Node current = new Node(val, null, null);
-        if (start == null) {
-            start = current;
-            end = start;
+        DoublyNode current = new DoublyNode(val, null, null);
+        if (head == null) {
+            head = current;
+            tail = head;
         } else {
-            current.setLinkPrev(end);
-            end.setLinkNext(current);
-            end = current;
+            current.setLinkPrev(tail);
+            tail.setLinkNext(current);
+            tail = current;
         }
         size++;
     }
 
     public void insertAtPos(int val, int pos) {
-        Node current = new Node(val, null, null);
+        DoublyNode current = new DoublyNode(val, null, null);
         if (pos == 1) {
             insertAtStart(val);
             return;
         }
-        Node ptr = start;
+        DoublyNode ptr = head;
         for (int i = 2; i <= size; i++) {
             if (i == pos) {
-                Node tmp = ptr.getLinkNext();
+                DoublyNode tmp = ptr.getLinkNext();
                 ptr.setLinkNext(current);
                 current.setLinkPrev(ptr);
                 current.setLinkNext(tmp);
@@ -68,26 +69,26 @@ public class JediDoublyLinkedList {
     public void deleteAtPos(int pos) {
         if (pos == 1) {
             if (size == 1) {
-                start = null;
-                end = null;
+                head = null;
+                tail = null;
                 size = 0;
                 return;
             }
-            start = start.getLinkNext();
-            start.setLinkPrev(null);
+            head = head.getLinkNext();
+            head.setLinkPrev(null);
             size--;
             return;
         }
         if (pos == size) {
-            end = end.getLinkPrev();
-            end.setLinkNext(null);
+            tail = tail.getLinkPrev();
+            tail.setLinkNext(null);
             size--;
         }
-        Node ptr = start.getLinkNext();
+        DoublyNode ptr = head.getLinkNext();
         for (int i = 2; i <= size; i++) {
             if (i == pos) {
-                Node p = ptr.getLinkPrev();
-                Node n = ptr.getLinkNext();
+                DoublyNode p = ptr.getLinkPrev();
+                DoublyNode n = ptr.getLinkNext();
 
                 p.setLinkNext(n);
                 n.setLinkPrev(p);
@@ -104,17 +105,25 @@ public class JediDoublyLinkedList {
             System.out.print("empty\n");
             return;
         }
-        if (start.getLinkNext() == null) {
-            System.out.println(start.getData());
+        if (head.getLinkNext() == null) {
+            System.out.println(head.getData());
             return;
         }
-        Node current = start;
-        System.out.print(start.getData() + " <-> ");
-        current = start.getLinkNext();
+        DoublyNode current = head;
+        System.out.print(head.getData() + " <-> ");
+        current = head.getLinkNext();
         while (current.getLinkNext() != null) {
             System.out.print(current.getData() + " <-> ");
             current = current.getLinkNext();
         }
         System.out.print(current.getData() + "\n");
+    }
+
+    public DoublyNode getHead() {
+        return head;
+    }
+
+    public DoublyNode getTail() {
+        return tail;
     }
 }

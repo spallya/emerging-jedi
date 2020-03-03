@@ -1,35 +1,35 @@
 package linkedList.doubly;
 
-public class Node {
+public class DoublyNode {
 
     protected int data;
-    protected Node next, previous;
+    protected DoublyNode next, previous;
 
-    public Node() {
+    public DoublyNode() {
         next = null;
         previous = null;
         data = 0;
     }
 
-    public Node(int data, Node next, Node previous) {
+    public DoublyNode(int data, DoublyNode next, DoublyNode previous) {
         this.data = data;
         this.next = next;
         this.previous = previous;
     }
 
-    public void setLinkNext(Node n) {
+    public void setLinkNext(DoublyNode n) {
         next = n;
     }
 
-    public void setLinkPrev(Node p) {
+    public void setLinkPrev(DoublyNode p) {
         previous = p;
     }
 
-    public Node getLinkNext() {
+    public DoublyNode getLinkNext() {
         return next;
     }
 
-    public Node getLinkPrev() {
+    public DoublyNode getLinkPrev() {
         return previous;
     }
 
