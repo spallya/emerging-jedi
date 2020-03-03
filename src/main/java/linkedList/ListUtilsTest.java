@@ -15,6 +15,14 @@ public class ListUtilsTest {
         reverseDoublyListTest();
     }
 
+    /*
+    *
+    * Program Output:
+    *
+    * Doubly Linked List = 575 <-> 44 <-> 13 <-> 221 <-> 110
+    * Reversed List: 			[110] [221] [13] [44] [575]
+    *
+    * */
     private static void reverseDoublyListTest() {
         JediDoublyLinkedList list = new JediDoublyLinkedList();
         list.insertAtStart(110);
