@@ -17,7 +17,7 @@ public class TrappingRainWater {
     private static int calculateTrappedWater(int[] height) {
         int length = height.length;
         int trappedWater = 0;
-        if (height.length > 0) {
+        if (length > 0) {
             int[] leftMax = new int[length];
             int[] rightMax = new int[length];
             leftMax[0] = height[0];
