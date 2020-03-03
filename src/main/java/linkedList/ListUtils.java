@@ -1,5 +1,8 @@
 package linkedList;
 
+import linkedList.singly.JediLinkedList;
+import linkedList.singly.Node;
+
 public class ListUtils {
 
     /*
@@ -34,5 +37,18 @@ public class ListUtils {
         }
 
         return fakeHead.getNext();
+    }
+
+    public static boolean isLoopPresent(JediLinkedList list) {
+        Node slow = list.getHead();
+        Node fast = list.getHead();
+        while (null != slow && null != fast && null != fast.getNext()) {
+            slow = slow.getNext();
+            fast = fast.getNext().getNext();
+            if(slow == fast) {
+                return true;
+            }
+        }
+        return false;
     }
 }

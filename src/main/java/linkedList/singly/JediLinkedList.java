@@ -1,4 +1,4 @@
-package linkedList;
+package linkedList.singly;
 
 public class JediLinkedList<T> {
 
