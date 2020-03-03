@@ -3,7 +3,18 @@ package linkedList.singly;
 public class JediLinkedListTest {
 
 	public static JediLinkedList<Integer> jediLinkedList;
- 
+
+	/*
+	*
+	* List: 					[110][221][13][44][575]
+	* .size(): 					5
+	* .get(3): 					44 (get element at index:3 - list starts from 0)
+	* .remove(2): 				true (element removed)
+	* List: 					[110][221][44][575]
+	* .get(3): 					575 (get element at index:3 - list starts from 0)
+	* .size(): 					4
+	* List: 					[110][221][44][575]
+	* */
 	public static void main(String[] args) {
 		jediLinkedList = new JediLinkedList<>();
 		jediLinkedList.add(110);
