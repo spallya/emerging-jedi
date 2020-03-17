@@ -43,6 +43,16 @@ public class StackUsingArray<T> {
         return sb.toString();
     }
 
+    /*
+    * Program Output:
+    *
+    * [40, 30, 20, 10]
+    * 40
+    * 30
+    * 20
+    * [10]
+    *
+    * */
     public static void main(String[] args) {
         StackUsingArray<Integer> stack = new StackUsingArray<>();
         stack.push(10);
